@@ -17,12 +17,12 @@ public class ReviewController {
     }
     @PostMapping
     public Review createReview(@RequestBody Review review){
-        return reviewService.save(review);
+        return reviewService.save(review); //save a review
 
     }
     @GetMapping("/{driverId}")
-    public List<Review> getReviewsByProductId(@PathVariable Long driverId){
-        return reviewService.findByDriverId(driverId);
+    public List<Review> getReviewsByServiceId(@PathVariable Long driverId){
+        return reviewService.findByDriverId(driverId);//find a driver
 
     }
 }
