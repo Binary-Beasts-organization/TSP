@@ -19,19 +19,19 @@ public class VehicleController {
     @PostMapping("/vehicle")
     Vehicle newVehicle(@RequestBody Vehicle newVehicle)
     {
-        return vehicleRepo.save(newVehicle);
+        return vehicleRepo.save(newVehicle);//save new vehicle
 
     }
     @GetMapping("/vehicles")
     List<Vehicle> getAllVehicles(){
-        return vehicleRepo.findAll();
+        return vehicleRepo.findAll(); //find all vehicles
 
     }
     @GetMapping("vehicle/{id}")
     Vehicle getVehicleById(@PathVariable Long id)
     {
-        return vehicleRepo.findById(id).orElseThrow(
-                ()->new VehicleNotFoundException(id)
+        return vehicleRepo.findById(id).orElseThrow( //find a vehicle
+                ()->new VehicleNotFoundException(id)//and error handling/
         );
 
     }
@@ -53,9 +53,9 @@ public class VehicleController {
     }
 
     @DeleteMapping("/user/{id}")
-    String deleteUser(@PathVariable Long id){
+    String deleteVehicle(@PathVariable Long id){
         if(!vehicleRepo.existsById(id)){
-            throw  new VehicleNotFoundException(id);
+            throw  new VehicleNotFoundException(id);//delete a vehicle
 
 
         }

@@ -11,6 +11,9 @@ public class Review {
 
     }
 
+    @jakarta.persistence.Id
+    @Column(name = "id_1", nullable = false)
+    private Long id1;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +32,14 @@ public class Review {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
     private Driver driver;
+
+    public Long getId1() {
+        return id1;
+    }
+
+    public void setId1(Long id1) {
+        this.id1 = id1;
+    }
 
     public Long getId() {
         return id;
