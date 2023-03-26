@@ -18,13 +18,13 @@ public class DriverController {
 
     @PostMapping("/driver")
     Driver newDriver(@RequestBody Driver newDriver) {
-        return driverRepo.save(newDriver);
+        return driverRepo.save(newDriver);//save new Driver
 
     }
 
     @GetMapping("/drivers")
     List<Driver> getAllDrivers() {
-        return driverRepo.findAll();
+        return driverRepo.findAll();//Find all drivers
 
     }
 
@@ -32,7 +32,7 @@ public class DriverController {
     @GetMapping("/driver/{id}")
     Driver getUserById(@PathVariable Long id) {
         return driverRepo.findById(id).orElseThrow
-                (() -> new DriverNotFoundException(id));
+                (() -> new DriverNotFoundException(id));//get driver by ID
 
 
     }
@@ -45,7 +45,7 @@ public class DriverController {
                     driver.setName(newDriver.getName());
                     driver.setPassword(driver.getPassword());
                     driver.setPartTimeOrFullTime(driver.isPartTimeOrFullTime());
-                    return driverRepo.save(driver);
+                    return driverRepo.save(driver);//save new Driver
 
                 }).orElseThrow(() -> new DriverNotFoundException(id));
 
@@ -55,7 +55,7 @@ public class DriverController {
     @DeleteMapping("/user/{id}")
     String deleteUser(@PathVariable Long id) {
         if (!driverRepo.existsById(id)) {
-            throw new DriverNotFoundException(id);
+            throw new DriverNotFoundException(id);//delete a Driver
 
         }
         driverRepo.deleteById(id);

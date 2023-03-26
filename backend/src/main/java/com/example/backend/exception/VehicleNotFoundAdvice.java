@@ -18,7 +18,7 @@ public class VehicleNotFoundAdvice {
 
     public Map<String,String> exceptionHandler(VehicleNotFoundException exception){
         Map<String,String> errorMap=new HashMap<>();
-        errorMap.put("errorMessage",exception.getMessage());
+        errorMap.put("errorMessage",exception.getMessage());//exception
         return errorMap;
 
 
