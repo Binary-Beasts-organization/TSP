@@ -16,7 +16,7 @@ public class DriverNotFoundAdvice {
 
     public Map<String,String> exceptionHandler(UserPrincipalNotFoundException exception){
         Map<String,String> errorMap=new HashMap<>();
-        errorMap.put("errorMesssager",exception.getMessage());
+        errorMap.put("errorMessage",exception.getMessage());//error handling
         return errorMap;
 
     }
