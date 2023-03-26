@@ -11,7 +11,7 @@ public class DirectionsController {
     @GetMapping("/directions")
     public String getDirections(@RequestParam String origin,@RequestParam String destination){
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + destination + "&key=YOUR_API_KEY";
+        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + destination + "&key=YOUR_API_KEY";//connect to google maps API
         String response = restTemplate.getForObject(url, String.class);
         return response;
     }
